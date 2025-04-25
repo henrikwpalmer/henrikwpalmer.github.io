@@ -3,34 +3,33 @@
 
 <head>
     <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	                <script src="libs/marked.min.js"></script>
-			                <link rel="stylesheet" href="index.css">
-					                    <meta property="og:title" content="Philipp Proff">
-							                            <meta property="og:description" content="This website is the contemporary representation of my works, thoughts and creativity.">
-										                                <meta property="og:url" content="https://philippproff.eu/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="libs/marked.min.js"></script>
+		<link rel="stylesheet" href="index.css">
+	<meta property="og:title" content="Philipp Proff">
+	<meta property="og:description" content="This website is the contemporary representation of my works, thoughts and creativity.">
+	<meta property="og:url" content="https://philippproff.eu/">
 
-														                                <title>Home</title>
-																		                                </head>
+	<title>Home</title>
+</head>
 
-																						                                <body>
-																										                                    <div id="menu">
-																														                                                <h3>Philipp Proff</h3>
-																																				                                                    <p>Hi, I study Design & Computation at Technische Universität Berlin and Universität der Künste Berlin.</p>
-																																										                                                                <p>My interest lays in information visualization, interfaces and media theory.</p>
-																																																		                                                                    <div id="refs"></div>
-																																																										                                                                            </div>
-																																																																			                                                                                <div id="content"></div>
-																																																																													                                                                                <div id="background"></div>
-																																																																																							                                                                                    <footer>
-																																																																																																	                                                                                                <a href="https://www.are.na/philipp-proff/channels" target="_blank">Are.na</a>
-																																																																																																													                                                                                                    <a href="https://github.com/elproffesore" target="_blank">Github</a>
-																																																																																																																									                                                                                                                <a href="mailto:philipp.proff@gmx.de" target="_blank">E-Mail</a>
-																																																																																																																																							                                                                                                                </footer>
-																																																																																																																																																					                                                                                                                    <script>
-																																																																																																																																																																			                                                                                                                                fetch('/content.md')
-																																																																																																																																																																																			                                                                                                                                        .then(content => content.text())
-																																																																																																																																																																																																				                                                                                                                                                    .then(content => {
-																																																																																																																																																																																																																						                                                                                                                                                                        let sites = content.split('------')
-																																																																																																																																																																																																																																											                                                                                                                                                                                    sites.map((site, siteIndex) => {
-																																																																																																																																																																																																																																																																	                                                                                                                                                                                                            let components = sit
+<body>
+  <div id="menu">
+  <h3>Henrik Palmer</h3>
+  <p>Testing paragraph.</p>
+	<p>Henrik Palmer is an interdisciplinary data vizualization professional currently working work sits at the intersection of economics, data, and design with ....</p>
+	<p>My interest lays in information visualization, interfaces and media theory.</p>
+	<div id="refs"></div>
+	</div>
+	<div id="content"></div>
+	<div id="background"></div>
+	<footer>
+<a href="mailto:henrikwpalmer@gmail.com" target="_blank">E-Mail</a>
+</footer>
+<script>
+fetch('/content.md')
+.then(content => content.text())
+.then(content => {
+let sites = content.split('------')
+sites.map((site, siteIndex) => {
+let components = sit
