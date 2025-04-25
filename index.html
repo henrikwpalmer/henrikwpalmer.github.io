@@ -1,35 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<script src="libs/marked.min.js"></script>
-		<link rel="stylesheet" href="index.css">
-	<meta property="og:title" content="Philipp Proff">
-	<meta property="og:description" content="This website is the contemporary representation of my works, thoughts and creativity.">
-	<meta property="og:url" content="https://philippproff.eu/">
-
-	<title>Home</title>
+  <meta charset="UTF-8">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="assets/p5.min.js"></script>
+  <script src="sketch.js" defer></script>
 </head>
-
 <body>
-  <div id="menu">
-  <h3>Henrik Palmer</h3>
-  <p>Testing paragraph.</p>
-	<p>Henrik Palmer is an interdisciplinary data vizualization professional currently working work sits at the intersection of economics, data, and design with ....</p>
-	<p>My interest lays in information visualization, interfaces and media theory.</p>
-	<div id="refs"></div>
-	</div>
-	<div id="content"></div>
-	<div id="background"></div>
-	<footer>
-<a href="mailto:henrikwpalmer@gmail.com" target="_blank">E-Mail</a>
-</footer>
-<script>
-fetch('/content.md')
-.then(content => content.text())
-.then(content => {
-let sites = content.split('------')
-sites.map((site, siteIndex) => {
-let components = sit
+  <main>
+    <h1>Hello, I'm [Your Name]</h1>
+    <p>This is my simple, minimal portfolio with some generative art and research work.</p>
+
+    <section class="sketch-container">
+      <div id="sketch-holder"></div>
+    </section>
+
+    <section class="pdf-section">
+      <h2>Research Paper</h2>
+      <p><a href="2.4 Platform Economics.pdf" target="_blank">📄 View PDF: Platform Economics</a></p>
+    </section>
+  </main>
+</body>
+</html>
