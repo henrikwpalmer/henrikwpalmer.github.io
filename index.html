@@ -3,110 +3,34 @@
 
 <head>
     <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <script src="libs/marked.min.js"></script>
-	        <link rel="stylesheet" href="index.css">
-		    <meta property="og:title" content="Philipp Proff">
-		        <meta property="og:description" content="This website is the contemporary representation of my works, thoughts and creativity.">
-			    <meta property="og:url" content="https://philippproff.eu/">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	                <script src="libs/marked.min.js"></script>
+			                <link rel="stylesheet" href="index.css">
+					                    <meta property="og:title" content="Philipp Proff">
+							                            <meta property="og:description" content="This website is the contemporary representation of my works, thoughts and creativity.">
+										                                <meta property="og:url" content="https://philippproff.eu/">
 
-			        <title>Home</title>
-				</head>
+														                                <title>Home</title>
+																		                                </head>
 
-				<body>
-				    <div id="menu">
-				            <h3>Philipp Proff</h3>
-					            <p>Hi, I study Design & Computation at Technische Universität Berlin and Universität der Künste Berlin.</p>
-						            <p>My interest lays in information visualization, interfaces and media theory.</p>
-							            <div id="refs"></div>
-								        </div>
-									    <div id="content"></div>
-									        <div id="background"></div>
-										    <footer>
-										            <a href="https://www.are.na/philipp-proff/channels" target="_blank">Are.na</a>
-											            <a href="https://github.com/elproffesore" target="_blank">Github</a>
-												            <a href="mailto:philipp.proff@gmx.de" target="_blank">E-Mail</a>
-													        </footer>
-														    <script>
-														            fetch('/content.md')
-															                .then(content => content.text())
-																	            .then(content => {
-																		                    let sites = content.split('------')
-																				                    sites.map((site, siteIndex) => {
-																						                        let components = site.split('---');
-																									                    let content = document.createElement('div')
-																											                        content.classList.add('entry') 
-																														                    //content
-																																                        let text = marked.parse(components[0])
-																																			                    let textElement = document.createElement('div')
-																																					                        textElement.classList.add('text')
-																																								                    textElement.innerHTML = text
-																																										                        content.prepend(textElement)
-																																													                    document.getElementById('content').appendChild(content)
-																																															                        let title = textElement.querySelector('h3')
-																																																		                    if(title){
-																																																				                            title.id = title.innerHTML.toLocaleLowerCase().replaceAll(' ', '-')
-																																																							                            let menuElement = document.createElement('a')
-																																																										                            menuElement.href = '#' + title.id
-																																																													                            menuElement.innerHTML = siteIndex > 0 ? "⇢ " + title.innerHTML : title.innerHTML
-																																																																                            document.getElementById('refs').appendChild(menuElement)
-																																																																			                        }
-
-																																																																						                    if (components.length > 1) {
-																																																																								                                //images
-																																																																												                            let images = components[1]
-																																																																															                                let imagesElement = document.createElement('div')
-																																																																																			                            imagesElement.classList.add('images')
-																																																																																						                                imagesElement.innerHTML = images
-																																																																																										                            content.appendChild(imagesElement)
-																																																																																													                        }
-																																																																																																                    if(components.length > 2) {
-																																																																																																		                                //footnotes
-																																																																																																						                            let footnotes = components[2].split('\n').map((line) => {
-																																																																																																									                                    if (line.trim() == '') return null
-																																																																																																													                                    return marked.parse(line)
-																																																																																																																	                                }).filter(line => line != null)
-																																																																																																																					                            console.log(footnotes)
-																																																																																																																								                                content.querySelectorAll('sup').forEach((sup, supIndex) => {
-																																																																																																																												                                let footnote = document.createElement('div')
-																																																																																																																																                                footnote.classList.add('footnotes')
-																																																																																																																																				                                footnote.innerHTML = footnotes[supIndex]
-																																																																																																																																								                                sup.appendChild(footnote)
-																																																																																																																																												                                footnote.querySelectorAll('p').forEach((paragraph,paragraphIndex) => {
-																																																																																																																																																                                    let sup = document.createElement('sup')
-																																																																																																																																																				                                        sup.innerHTML = (paragraphIndex + 1) + " "
-																																																																																																																																																									                                    paragraph.prepend(sup)
-																																																																																																																																																													                                    })
-																																																																																																																																																																	                                })
-																																																																																																																																																																					                    }
-																																																																																																																																																																							                    })
-																																																																																																																																																																									                    //make all images enlargeable
-																																																																																																																																																																											                    document.querySelectorAll('img').forEach(img => {
-																																																																																																																																																																													                        img.addEventListener('click', enlargeImage)
-																																																																																																																																																																																                    img.loading = 'lazy'
-																																																																																																																																																																																		                    })
-																																																																																																																																																																																				                    document.querySelectorAll('#content a').forEach(a => {
-																																																																																																																																																																																						                        a.target = "_blank"
-																																																																																																																																																																																									                })
-																																																																																																																																																																																											            })
-
-																																																																																																																																																																																												            //enlarge images
-																																																																																																																																																																																													            let image = null
-																																																																																																																																																																																														            document.addEventListener('keydown', closeImage)
-																																																																																																																																																																																															            document.addEventListener('scroll', (e) => { if (image != null) e.preventDefault() })
-																																																																																																																																																																																																            function enlargeImage(event) {
-																																																																																																																																																																																																	                image = event.target
-																																																																																																																																																																																																			            image.classList.add('enlarged')
-																																																																																																																																																																																																				                image.addEventListener('click', closeImage)
-																																																																																																																																																																																																						            document.getElementById('background').style.visibility = 'visible'
-																																																																																																																																																																																																							            }
-																																																																																																																																																																																																								            function closeImage() {
-																																																																																																																																																																																																									                if (image == null) return
-																																																																																																																																																																																																											            document.getElementById('background').style.visibility = 'hidden'
-																																																																																																																																																																																																												                image.classList.remove('enlarged')
-																																																																																																																																																																																																														            image.removeEventListener('click', closeImage)
-																																																																																																																																																																																																															                image = null
-																																																																																																																																																																																																																	        }
-																																																																																																																																																																																																																		    </script>
-																																																																																																																																																																																																																		    </body>
-																																																																																																																																																																																																																		    </html>
+																						                                <body>
+																										                                    <div id="menu">
+																														                                                <h3>Philipp Proff</h3>
+																																				                                                    <p>Hi, I study Design & Computation at Technische Universität Berlin and Universität der Künste Berlin.</p>
+																																										                                                                <p>My interest lays in information visualization, interfaces and media theory.</p>
+																																																		                                                                    <div id="refs"></div>
+																																																										                                                                            </div>
+																																																																			                                                                                <div id="content"></div>
+																																																																													                                                                                <div id="background"></div>
+																																																																																							                                                                                    <footer>
+																																																																																																	                                                                                                <a href="https://www.are.na/philipp-proff/channels" target="_blank">Are.na</a>
+																																																																																																													                                                                                                    <a href="https://github.com/elproffesore" target="_blank">Github</a>
+																																																																																																																									                                                                                                                <a href="mailto:philipp.proff@gmx.de" target="_blank">E-Mail</a>
+																																																																																																																																							                                                                                                                </footer>
+																																																																																																																																																					                                                                                                                    <script>
+																																																																																																																																																																			                                                                                                                                fetch('/content.md')
+																																																																																																																																																																																			                                                                                                                                        .then(content => content.text())
+																																																																																																																																																																																																				                                                                                                                                                    .then(content => {
+																																																																																																																																																																																																																						                                                                                                                                                                        let sites = content.split('------')
+																																																																																																																																																																																																																																											                                                                                                                                                                                    sites.map((site, siteIndex) => {
+																																																																																																																																																																																																																																																																	                                                                                                                                                                                                            let components = sit
