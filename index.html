@@ -8,18 +8,38 @@
   <script src="sketch.js" defer></script>
 </head>
 <body>
-  <main>
-    <h1>Hello, I'm [Your Name]</h1>
-    <p>This is my simple, minimal portfolio with some generative art and research work.</p>
+	<div class="container">
+	  <aside class="sidebar">
+		<h1>Henrik Palmer</h1>
+		<nav>
+		  <ul>
+			<li><a href="#paper">PDF</a></li>
+			<li><a href="#sketch">Sketch</a></li>
+			<li><a href="#video">Sketch</a></li>
+		  </ul>
+		</nav>
+	  </aside>
+  
+	  <main class="content">
+		
+		<section id="paper" class="pdf-section">
+		  <h2>Regulatory Framework for Competition in Two-Sided Digital Platforms </h2>
+		  <p><a href="2.4 Platform Economics.pdf" target="_blank">📄 Link to Chapter in Global Competition Review</a></p>
+		</section>
 
-    <section class="sketch-container">
-      <div id="sketch-holder"></div>
-    </section>
+		<section id="sketch" class="sketch-container">
+			<h2>Generative Sketch</h2>
+			<div id="sketch-holder"></div>
+		</section>
 
-    <section class="pdf-section">
-      <h2>Research Paper</h2>
-      <p><a href="2.4 Platform Economics.pdf" target="_blank">📄 View PDF: Platform Economics</a></p>
-    </section>
-  </main>
-</body>
-</html>
+		<section id="video">
+			<h2>Watch My Project Demo</h2>
+			<div class="video-container">
+			  <iframe src="https://www.youtube.com/watch?v=ogRqmIvIvrs" frameborder="0" allowfullscreen></iframe>
+			</div>
+		</section>
+
+	  </main>
+	</div>
+  </body>
+  </html>
