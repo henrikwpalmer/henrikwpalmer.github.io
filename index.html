@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="style.css">
   <script src="assets/p5.min.js"></script>
   <script src="Quaranspace.js" defer></script>
+  <script src="albers.js" defer></script>
 </head>
 <body>
 	<div class="container">
@@ -15,7 +16,7 @@
 		  <ul>
 			<li><a href="#paper">PDF</a></li>
 			<li><a href="#sketch">Sketch</a></li>
-			<li><a href="#video">Sketch</a></li>
+			<li><a href="#video">Video</a></li>
 		  </ul>
 		</nav>
 	  </aside>
@@ -27,9 +28,9 @@
 		  <p><a href="2.4 Platform Economics.pdf" target="_blank">📄 Link to Chapter in Global Competition Review</a></p>
 		</section>
 
-		<section id="sketch" class="sketch-container">
-			<h2>Quaranspace Sketch</h2>
-			<div id="sketch-holder"></div>
+		<section id="quaran-sketch" class="sketch-container">
+			<h2>Quaranspace</h2>
+			<div id="quaran_sketch"></div>
 		</section>
 
 		<section id="video">
@@ -43,7 +44,19 @@
 			</div>
 		</section>
 
+		<section id="albers-sketch" class="sketch-container">
+			<h2>Albers Transformation</h2>
+			<div id="albers_sketch"></div>
+		</section>
+
+
 	  </main>
 	</div>
+	<script>
+		window.onload = function() {
+		  new p5(quaranSketch, 'quaran_sketch');
+		  new p5(albersSketch, 'albers_sketch');
+		};
+		</script>
   </body>
   </html>
