@@ -1,134 +1,187 @@
-let time = 0, turn = 0, speed = 0.001, shrink = 0.2, send = 0.2, send1 = 0.2;
-let boom = 1;
-let zoom = 1.7;
-let time1 = 0;
-let go = false, expand = false, contract = false, kaboom = false, flaps = false;
+let time = 0;
+let photoCount = 0;
+let totalPhotos = 4;
+let testFile, finalPhoto;
+let testPhoto;
+let photoFiles = [];
+let photosArray = [];
+let stop = true, check = true, display = false, blur = false;
+let b = 0;
 
-// coordinates from original .pde sketch
-let verts = {
-  x1: 0, y1: -258,
-  x2: -157.6, y2: -213.3,
-  x3: 50, y3: -99.5,
-  x4: 213, y4: -152.5,
-  x5: -54, y5: 112.5,
-  x6: -210, y6: 168.5,
-  x7: 0, y7: 257.5,
-  x8: 158, y8: 211.5,
-  x9: -210, y9: -103,
-  x10: -54, y10: -153,
-  x11: 50, y11: 161,
-  x12: 213, y12: 112.5,
-};
+function preload() {
+  for (let i = 0; i < totalPhotos; i++) {
+    photoFiles[i] = loadImage('RUN' + i + '.jpeg'); // Make sure you have RUN0.jpeg, RUN1.jpeg, etc.
+  }
+}
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
-  rectMode(CENTER);
-  angleMode(RADIANS);
+  let canvas = createCanvas(1100, 700, WEBGL);
+  canvas.parent('sketch-holder');
+  background(0);
+  frameRate(60);
+
+  for (let i = 0; i < photoFiles.length; i++) {
+    photosArray[i] = new Edits(photoFiles[i]);
+    photosArray[i].clearing();
+    photosArray[i].averaging();
+  }
+
+  // (Optional) setup file drop
+  // let canvas = document.getElementById('defaultCanvas0');
+  // canvas.addEventListener('drop', gotFile);
 }
 
 function draw() {
-  background('#002B7C');
-  frameRate(150);
-  time += 0.1;
-  if (flaps) time1 += 1;
-  boom = zoom;
-
-  if (go) turn += speed;
-  if (expand) boom += speed;
-  if (contract) boom -= speed;
-  if (kaboom) {
-    send1 -= time1;
-    send += time1;
+  if (blur) {
+    background(0);
   }
 
-  stroke('#C3DEEF');
-  noFill();
-
-  push();
-  translate(mouseX, mouseY);
-  scale(zoom);
-  translate(-mouseX, -mouseY);
-
-  translate(width / 2, height / 2);
-  rotate(turn);
-  translate(-width / 2, -height / 2);
-
-  for (let l = -500; l < 1500; l += 74 * boom) {
-    for (let i = -500; i < 2400; i += 100 * boom) {
-      push();
-      strokeWeight(2);
-      translate(i, l);
-      rotate(-radians(time));
-      fill('#BF7919AA');
-
-      if (flaps) {
-        verts.x11 = 120 * cos((-time1 / 50) + HALF_PI) + 50;
-        verts.y11 = 260.5 * sin((-time1 / 50) + HALF_PI) - 99.5;
-        verts.x12 = 120 * cos((-time1 / 50) + HALF_PI) + 213;
-        verts.y12 = 260.5 * sin((-time1 / 50) + HALF_PI) - 152.5;
-        verts.x9 = 120 * cos((-time1 / 50) - HALF_PI) - 210;
-        verts.y9 = 260.5 * sin((-time1 / 50) - HALF_PI) + 160.5;
-        verts.x10 = 120 * cos((-time1 / 50) - HALF_PI) - 54;
-        verts.y10 = 260.5 * sin((-time1 / 50) - HALF_PI) + 112.5;
-      }
-
-      // side boxes
-      quad(
-        shrink * verts.x6, send * verts.y6,
-        shrink * verts.x5, send * verts.y5,
-        shrink * verts.x10, send1 * verts.y10,
-        shrink * verts.x9, send1 * verts.y9
-      );
-      quad(
-        shrink * verts.x3, send1 * verts.y3,
-        shrink * verts.x4, send1 * verts.y4,
-        shrink * verts.x12, send * verts.y12,
-        shrink * verts.x11, send * verts.y11
-      );
-
-      // prism
-      fill('#004C3CCC');
-      quad(
-        shrink * verts.x1, send1 * verts.y1,
-        shrink * verts.x2, send1 * verts.y2,
-        shrink * verts.x3, send1 * verts.y3,
-        shrink * verts.x4, send1 * verts.y4
-      );
-      quad(
-        shrink * verts.x5, send * verts.y5,
-        shrink * verts.x6, send * verts.y6,
-        shrink * verts.x7, send * verts.y7,
-        shrink * verts.x8, send * verts.y8
-      );
-
-      strokeWeight(2);
-      line(shrink * verts.x1, send1 * verts.y1, shrink * verts.x5, send * verts.y5);
-      line(shrink * verts.x2, send1 * verts.y2, shrink * verts.x6, send * verts.y6);
-      line(shrink * verts.x3, send1 * verts.y3, shrink * verts.x7, send * verts.y7);
-      line(shrink * verts.x4, send1 * verts.y4, shrink * verts.x8, send * verts.y8);
-
-      pop();
-    }
+  if (testFile != null && check) {
+    // You can add processing logic here if you want to handle new files
   }
 
-  pop();
+  for (let i = 0; i < photosArray.length; i++) {
+    photosArray[i].display();
+  }
 }
 
-function mouseWheel(event) {
-  zoom *= 1.0 - (event.delta * 0.001);
-  zoom = constrain(zoom, 1, 5.0);
+function mouseReleased() {
+  check = true;
 }
 
 function keyPressed() {
-  if (key === 's') go = !go;
-  if (key === 'e') expand = !expand;
-  if (key === 'c') contract = !contract;
-  if (key === 'x') {
-    kaboom = !kaboom;
-    time1 = 0;
+  if (key === ' ') {
+    blur = !blur;
   }
-  if (key === 'f') {
-    flaps = !flaps;
-    // time1 = 0;
+  if (key === 'r' || key === 'R') {
+    resetSketch();
+  }
+}
+
+function resetSketch() {
+  background(0);
+  time = 0;
+  testFile = null;
+  for (let edit of photosArray) {
+    edit.clearing();
+    edit.averaging();
+  }
+  console.log('Sketch reset.');
+}
+
+function gotFile(e) {
+  e.preventDefault();
+  let file = e.dataTransfer.files[0];
+  if (file.type.startsWith('image')) {
+    let reader = new FileReader();
+    reader.onload = function(event) {
+      loadImage(event.target.result, img => {
+        testFile = img;
+        check = true;
+      });
+    };
+    reader.readAsDataURL(file);
+  }
+}
+
+// --- Class Definition ---
+class Edits {
+  constructor(img) {
+    this.run = img;
+    this.interRun = createImage(this.run.width, this.run.height);
+    this.scaleFactor = random(0.25, 0.8);
+    this.xAverage = 0;
+    this.yAverage = 0;
+    this.randOffsetX = random(-2, 2);
+    this.randOffsetY = random(-2, 2);
+    this.randOffsetZ = random(-2, 2);
+    this.randTint = this.pickTint(this.randOffsetX);
+    this.matrix3 = [
+      [1, 1, 1],
+      [1, 1, 1],
+      [1, 1, 1]
+    ];
+  }
+
+  pickTint(offsetX) {
+    if (offsetX <= -0.75) {
+      return lerpColor(color('#71B35B'), color('#ABFF8F'), abs(offsetX) / 2);
+    } else if (offsetX > -0.75 && offsetX <= 0.75) {
+      return lerpColor(color('#D09BFF'), color('#BB66FF'), abs(offsetX) / 2);
+    } else {
+      return lerpColor(color('#FFE673'), color('#B3A259'), abs(offsetX) / 2);
+    }
+  }
+
+  display() {
+    if (stop) {
+      time += 0.0008;
+    }
+    push();
+    translate(0, 0, 0);
+    rotateX(time * this.randOffsetX);
+    rotateZ(time * this.randOffsetZ);
+    rotateY(time * this.randOffsetY);
+    scale(this.scaleFactor);
+    tint(this.randTint);
+    image(this.interRun, -this.xAverage, -this.yAverage);
+    pop();
+  }
+
+  clearing() {
+    this.run.loadPixels();
+    this.interRun.loadPixels();
+    for (let x = 0; x < this.run.width; x++) {
+      for (let y = 0; y < this.run.height; y++) {
+        let loc = x + y * this.run.width;
+        this.clearingBackground(loc);
+      }
+    }
+    this.interRun.updatePixels();
+  }
+
+  clearingBackground(loc) {
+    let r = red(this.run.pixels[loc]);
+    let g = green(this.run.pixels[loc]);
+    let b = blue(this.run.pixels[loc]);
+    let bright = brightness(this.run.pixels[loc]);
+
+    if (r > 90 && g > 90 && b > 90) {
+      this.interRun.pixels[loc] = color(255);
+    } else if (bright > 100) {
+      this.interRun.pixels[loc] = color(255);
+    } else {
+      this.interRun.pixels[loc] = color(0, 0, 0, 0);
+    }
+  }
+
+  averaging() {
+    let xTotal = 0, yTotal = 0, numberPixels = 0;
+    let xCalc = Array(this.run.width).fill(0);
+    let yCalc = Array(this.run.height).fill(0);
+
+    this.interRun.loadPixels();
+    for (let x = 0; x < this.run.width; x++) {
+      for (let y = 0; y < this.run.height; y++) {
+        let loc = x + y * this.run.width;
+        let bright = brightness(this.interRun.pixels[loc]);
+        if (bright > 10) {
+          xCalc[x]++;
+          yCalc[y]++;
+          numberPixels++;
+        }
+      }
+    }
+
+    for (let i = 0; i < this.run.width; i++) {
+      xTotal += (i + 1) * xCalc[i];
+    }
+    for (let i = 0; i < this.run.height; i++) {
+      yTotal += (i + 1) * yCalc[i];
+    }
+
+    this.xAverage = xTotal / numberPixels;
+    this.yAverage = yTotal / numberPixels;
+    console.log('averaged', this.xAverage, this.yAverage);
   }
 }
