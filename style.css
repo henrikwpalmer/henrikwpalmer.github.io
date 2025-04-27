@@ -97,3 +97,45 @@ body, html {
 	max-width: 100%;
 	height: auto;
   }
+  .photo-gallery {
+	width: 90%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 1.5rem 0; /* slightly less padding around the whole section */
+  }
+  
+  .photo-row {
+	margin-bottom: 1.5rem; /* was 2rem, now less space between rows */
+	text-align: center;
+  }
+  
+  .photo-row img {
+	width: 100%;
+	height: auto;
+	display: block;
+	margin: 0 auto;
+	border-radius: 8px;
+  }
+  
+  .photo-caption {
+	margin-top: 0.25rem; /* was 0.5rem, now tighter under the image */
+	font-size: 1rem;
+	color: #444;
+  }
+  
+  .two-images {
+	display: flex;
+	gap: 1rem; /* was 2rem, now tighter between side-by-side images */
+  }
+  
+  .half-photo {
+	flex: 1;
+	text-align: center;
+  }
+  
+  .half-photo img {
+	width: 100%;
+	height: auto;
+	border-radius: 8px;
+  }
+  
