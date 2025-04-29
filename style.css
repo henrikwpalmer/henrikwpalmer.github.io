@@ -85,13 +85,27 @@ body, html {
   }
 
   h3 {
-	font-weight: 10;
+	font-weight: 1;
   }
   
+  .body-text {
+	font-size: 15px;
+	line-height: 1.5;
+	color: #333; /*  a little softer than pure black */
+  }
+
   .sketch-container, .pdf-section {
 	margin-bottom: 3rem;
   }
   
+  .section-box {
+	background-color: #fafafa;
+	padding: 20px;
+	border-radius: 6px;
+	margin-bottom: 24px;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+
   /* Make sure the canvas fits nicely */
   canvas {
 	max-width: 100%;
@@ -105,7 +119,7 @@ body, html {
   }
   
   .photo-row {
-	margin-bottom: 1.5rem; /* was 2rem, now less space between rows */
+	margin-bottom: 1.5rem; /* space between rows */
 	text-align: center;
   }
   
@@ -114,18 +128,19 @@ body, html {
 	height: auto;
 	display: block;
 	margin: 0 auto;
-	border-radius: 8px;
+	border-radius: 4px;
   }
   
   .photo-caption {
-	margin-top: 0.25rem; /* was 0.5rem, now tighter under the image */
+	margin-top: 0.25rem; /* under the image */
 	font-size: 1rem;
+	line-height: 1;
 	color: #444;
   }
   
   .two-images {
 	display: flex;
-	gap: 1rem; /* was 2rem, now tighter between side-by-side images */
+	gap: 1rem; /* side-by-side space */
   }
   
   .half-photo {
@@ -136,6 +151,6 @@ body, html {
   .half-photo img {
 	width: 100%;
 	height: auto;
-	border-radius: 8px;
+	border-radius: 4px;
   }
   
