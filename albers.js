@@ -2,9 +2,9 @@ let albersSketch = (p) => {
 
   let time = 0, turn = 0, speed = 0.001, shrink = 0.2, send = 0.2, send1 = 0.2;
   let boom = 1;
-  let zoom = 1.7;
+  let zoom = 3;
   let time1 = 0;
-  let go = false, expand = false, contract = false, kaboom = false, flaps = false;
+  let go = true, expand = false, contract = false, kaboom = false, flaps = true;
 
   let verts = {
     x1: 0, y1: -258,
@@ -22,17 +22,21 @@ let albersSketch = (p) => {
   };
 
   p.setup = function() {
-    let canvas = p.createCanvas(p.windowWidth, p.windowHeight);
-    canvas.parent('albers_sketch'); // New div for this sketch
+    let canvas = p.createCanvas(250, p.windowHeight);
+    canvas.parent(p._userNode);
     p.rectMode(p.CENTER);
     p.angleMode(p.RADIANS);
   };
 
+  p.windowResized = function() {
+    p.resizeCanvas(250, p.windowHeight);
+  };
+  
   p.draw = function() {
     p.background('#002B7C');
     p.frameRate(150);
-    time += 0.3;
-    if (flaps) time1 += 1;
+    time += 0.2;
+    if (flaps) time1 += 0.5;
     boom = zoom;
 
     if (go) turn += speed;
@@ -117,8 +121,8 @@ let albersSketch = (p) => {
   };
 
   p.mouseWheel = function(event) {
-    zoom *= 1.0 - (event.delta * 0.001);
-    zoom = p.constrain(zoom, 1, 5.0);
+    zoom *= 1.0 - (event.delta * 0.0001);
+    zoom = p.constrain(zoom, 0.9, 5.0);
   };
 
   p.keyPressed = function() {

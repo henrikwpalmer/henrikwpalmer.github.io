@@ -5,12 +5,17 @@
   <title>My Portfolio</title>
   <link rel="stylesheet" href="style.css">
   <script src="assets/p5.min.js"></script>
-  <script src="Quaranspace.js" defer></script>
   <script src="albers.js" defer></script>
+  <script src="Quaranspace.js" defer></script>
 </head>
 <body>
+	<!-- <div class="bookend" id="albers_top"></div> -->
+
 	<div class="container">
 	  <aside class="sidebar">
+
+		<div class="sidebar-canvas" id="albers_sidebar"></div>
+
 		<h1>Henrik Palmer</h1>
 		<nav>
 		  <ul>
@@ -19,7 +24,6 @@
 			<li>➔ <a href="#video">AR Hope Dandelion</a></li>
 			<li>➔ <a href="#chandelier">Echo Chandelier</a></li>
 			<li>➔ <a href="#conjoined_solids">Conjoined Solids</a></li>
-			<li>➔ <a href="#albers-sketch">Albers Sketch</a></li>
 		  </ul>
 		</nav>
 	  </aside>
@@ -36,16 +40,44 @@
 			<h2>COVID Quaranspace</h2>
 			<p class="body-text">
 				<b>Date:</b> April 2020 <br>
-				<b>Medium/Tools: </b> Processing, p5.js, Drop Library, Run Trainer App <br>
-				<b>Description: </b> COVID Quaranspace is designed as a way for users to use geolocation to develop form. 
-				Intially created as an application, the sketch consists of a window for uploading screenshots of running or walking paths recorded
-				on a running tracker. The code performs pixels operations on uploaded screenshots to identify the paths taken 
-				while making transluscent excess noise in the screenshot. The geographic center of the loop or form is caluculated and 
-				is used as the axis for rotating in 3D space. <br><br>
-				At the onset of the pandemic, the piece grapples with confinement that lots of the world was experiencing as lockdown measures
-				were being implemented to "slow the spread." Further iterations would have incorporated connectivity between users such that 
-				users could see how their Quaranspace did or did not overlap with others in their community.</p>
+				<b>Medium/Tools: </b> Processing, p5.js, Run Trainer App <br>
+				<b>Overview: </b> <i>COVID Quaranspace</i> is designed as a way for users to use geolocation to develop form and 
+				reflect on their daily life patters. Intially created as an application, the project consists of a window for 
+				uploading screenshots of running or walking paths recorded on a running tracker which are then manipulated and 
+				orbited in black space. <br> <br>
+				<b>Code Description: </b>The code employs a Java script library for importing images from the user. The uploaded image 
+				is then processed pixel-by-pixel to identify the pixels showing the path taken. All other pixels are made transluscent 
+				thereby removing excess noise in the screenshot. The geographic center of the path is calculated and 
+				is used as the folcrum for rotating in 3D space. Each uploaded image is assigned a random color based on 
+				a predetermined color pallette<br><br>
+				<b>Concept: </b><i>COVID Quaranspace</i> was being developed as I was contemplating the emergent powers claimed by 
+				the state during what Carl Schmitt deems the "state of emergency." During this period of heightened national anxiety, governments 
+				had or claimed license to impose strict social isoloation standards, shortcut data security protections, and fast-track legislation. 
+				Of course, chief among these was the lockdown protocols that many of the world's governments were implementing to varying degrees 
+				of enforcement in order to "slow the spread." <br><br> 
+				The application reflects on the availability of geolocation data and how these data might be used to map infection risk, social 
+				interaction, and social isolation. Further iterations would have incorporated connectivity between users such that 
+				users could see how their Quaranspace did or did not overlap with others in their community. <br><br>
+				</p>
 			<div id="quaran_sketch"></div>
+			<p class="photo-caption"> <br>Uploaded Run Screenshots</p>
+			<!-- Two images side by side -->
+			<div class="photo-row two-images">
+				<div class="half-photo">
+					<img src="RUN0.jpeg" style= "width: 300px; height: auto;" alt="example1">
+				</div>
+				<div class="half-photo">
+					<img src="RUN1.jpeg" style= "width: 300px; height: auto;" alt="example2">
+				</div>
+				<div class="half-photo">
+					<img src="RUN2.jpeg" style= "width: 300px; height: auto;" alt="example2">
+				</div>
+				<div class="half-photo">
+					<img src="RUN3.jpeg" style= "width: 300px; height: auto;" alt="example2">
+				</div>
+
+			</div>
+			  
 		</section>
 <!-- AR Filter Video -->
 		<section id="video" class = "section-box">
@@ -53,17 +85,24 @@
 			<p class = "body-text">
 				<b>Date:</b> May 2020 <br>
 				<b>Medium/Tools: </b>SparkAR Studio<br>
-				<b>Description: </b>The Hope Dandelion AR Filter was developed as a way for entering a world prior to the environmental degredation
-				brought on by industrialization, that is, a world in which the American Chestnut Tree still blumed in North America. The user finds themself 
-				in the font-facing camera view with the instruction to make a wish on a Dandelion. After blowing on the Dandelion, a Laurie 
-				Anderson-like world unfolds first with apple and peach blossoms, then with chestnuts floating in augmented reality space. 
-				After switching to the back camera, the user finds an American Chestnut tree in blume before them. The tree can be explored on the inside 
-				and out as blossoms and chestnuts continue to spawn. Throughout 2020, Hope Dandelion was available for use through Instagram's filter 
-				library.<br> <br>
-				The project was spurred by the many pandemics that affect not only human life, but also the natural world. In the forests surrouding 
-				my childhood home, many blights have begun to deteriorate the hardwood trees-- the Hemlocks affected by the XXX, the Ash trees by the 
-				invasive Ash bore, the xxx. Most significant to the natural and human world among the species driven to extinction through species-wide
-				illnesses was the Chestnut [[XXX]]. </p>
+				<b>Overview: </b><i>Hope Dandelion</i> is an augmented reality (AR) filter made available on Instagram's filter library  
+				that invites users to momentarily inhabit a pre-industrial ecological world—one in which the American Chestnut 
+				tree still flourished. By blowing on the non-native dandelion, users unlock a transformation of their surroundings, 
+				exploring a dream-like world of abundant fruits and vegetation.<br><br>
+				<b>Experience: </b>The filter opens with the user in selfie view, holding a digital dandelion with the 
+				prompt to make a wish. After blowing on the seeds, blossoms begin to float—first apple and peach blossoms, 
+				then chestnuts—evoking a Jennifer Steinkamp-like unreality. Switching to the back camera reveals a fully 
+				rendered American Chestnut tree in bloom. Blossoms and chestnuts drift through the augmented space, which can be explored from 
+				all angles. <br><br>
+				<b>Concept: </b>The project was developed during the COVID-19 pandemic and draws parallels between 
+				human and ecological disease. It reflects on the cascading pandemics currently affecting New England forests where I grew up—from the Hemlock 
+				Woolly Adelgid to the Emerald Ash Borer and the Dutch Elm Disease—and mourns the disappearance of species long snuffed out. 
+				The American Chestnut, once central to Applachian life as a source of communal food and economic goods, 
+				was decimated by a blight imported via global trade- the same force that amplified its economic value. <br> <br>
+				By using a Eurasian dandelion as the symbolic key to unlock this imagined past, <i>Hope Dandelion</i> explores the contradictions inherent 
+				to economic prosperity enabled through environmental degradation, themes of collective memory and loss, and interconnectivity in a 
+				globalized world. It asks: what does restoration look like when it carries the seeds of further deterioration?
+				</p>
 			<div class="video-container">
 				<iframe width="360" height="640" src="https://www.youtube.com/embed/zLJOMkd2F3I"
 				title="YouTube video player" frameborder="0" 
@@ -141,21 +180,28 @@
 		  </section>
 
 <!-- Albers Sketch -->
-		<section id="albers-sketch" class="sketch-container section-box">
+		<!-- <section id="albers-sketch" class="sketch-container section-box">
 			<h2>Albers Transformation</h2>
 			<p class="body-text"><b>Abstract:</b> This chapter, published in the Global Competition Review's annual publication discusses the antitrust environment in
 				 early 2022 with Lina Khan at the helm of the FTC. Specifically, the paper is focused on...</p>
 			<div id="albers_sketch"></div>
-		</section>
+		</section> -->
 
 
 	  </main>
 	</div>
+
+	<!-- <div class="bookend" id="albers_bottom"></div> -->
+
 	<script>
 		window.onload = function() {
 		  new p5(quaranSketch, 'quaran_sketch');
-		  new p5(albersSketch, 'albers_sketch');
+		  new p5(albersSketch, 'albers_sidebar');
+		//   new p5(albersSketch, 'albers_top');
+		//   new p5(albersSketch, 'albers_bottom');
 		};
-		</script>
+	</script>
+
+
   </body>
   </html>
