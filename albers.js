@@ -127,12 +127,12 @@ let albersSketch = (p) => {
 
   p.keyPressed = function() {
     if (p.key === 's') go = !go;
-    if (p.key === 'e') expand = !expand;
+    // if (p.key === 'e') expand = !expand;
     if (p.key === 'c') contract = !contract;
-    if (p.key === 'x') {
-      kaboom = !kaboom;
-      time1 = 0;
-    }
+    // if (p.key === 'x') {
+    //   kaboom = !kaboom;
+    //   time1 = 0;
+    // }
     if (p.key === 'f') {
       flaps = !flaps;
     }
