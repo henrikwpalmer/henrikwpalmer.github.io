@@ -9,7 +9,6 @@
   <script src="Quaranspace.js" defer></script>
 </head>
 <body>
-	<!-- <div class="bookend" id="albers_top"></div> -->
 
 	<div class="container">
 	  <aside class="sidebar">
@@ -19,7 +18,7 @@
 		<h1>Henrik Palmer</h1>
 		<nav>
 		  <ul>
-			<li>➔ <a href="#paper">Platform Economics and Mergers</a></li>
+			<li>➔ <a href="#paper">Platform Economics and Mergers Chapter</a></li>
 			<li>➔ <a href="#quaran-sketch">COVID Quaranspace</a></li>
 			<li>➔ <a href="#video">AR Hope Dandelion</a></li>
 			<li>➔ <a href="#chandelier">Echo Chandelier</a></li>
@@ -29,7 +28,29 @@
 	  </aside>
   
 	  <main class="content">
-<!-- AG Article -->
+<!-- MAIN BIO -->
+<!-- Bio Section -->
+		<section class="max-w-3xl mx-auto mt-12 mb-16 px-6">
+			<div id="bio" class="opacity-0 translate-y-4 transition-all duration-1000 bg-gray-300 border border-gray-400 rounded-2xl shadow-sm p-8">
+			<h1 class="text-2xl font-medium text-gray-900 mb-3">Henrik Palmer</h1>
+			<p class="text-base text-gray-700 leading-relaxed">
+				I'm a designer and coder exploring the relationship between technology, data, and the urban environment.
+				I use tools like Processing, p5.js, and web-based visualization to create interactive spatial experiences.
+			</p>
+			</div>
+		</section>
+		
+		<!-- Fade-in Script -->
+		<script>
+			window.addEventListener("DOMContentLoaded", () => {
+			const bio = document.getElementById("bio");
+			requestAnimationFrame(() => {
+				bio.classList.remove("opacity-0", "translate-y-4");
+				bio.classList.add("opacity-100", "translate-y-0");
+			});
+			});
+		</script>
+	<!-- AG Article -->
 		<section id="paper" class="pdf-section section-box">
 		  <h2>Regulatory Framework for Competition in Two-Sided Digital Platforms </h2>
 		  <p class="body-text">
