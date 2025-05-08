@@ -26,6 +26,8 @@ let albersSketch = (p) => {
     canvas.parent(p._userNode);
     p.rectMode(p.CENTER);
     p.angleMode(p.RADIANS);
+
+    p.zoom = zoom;
   };
 
   p.windowResized = function() {
@@ -37,7 +39,7 @@ let albersSketch = (p) => {
     p.frameRate(150);
     time += 0.2;
     if (flaps) time1 += 0.5;
-    boom = zoom;
+    boom = p.zoom;
 
     if (go) turn += speed;
     if (expand) boom += speed;
@@ -52,7 +54,7 @@ let albersSketch = (p) => {
 
     // p.push();
     // p.translate(p.mouseX, p.mouseY);
-    p.scale(zoom);
+    p.scale(p.zoom);
     // p.translate(-p.mouseX, -p.mouseY);
 
     p.translate(p.width / 2, p.height / 2);
@@ -121,8 +123,8 @@ let albersSketch = (p) => {
   };
 
   p.mouseWheel = function(event) {
-    zoom *= 1.0 - (event.delta * 0.0001);
-    zoom = p.constrain(zoom, 0.9, 5.0);
+    p.zoom *= 1.0 - (event.delta * 0.0001);
+    p.zoom = p.constrain(p.zoom, 0.9, 5.0);
   };
 
   p.keyPressed = function() {
