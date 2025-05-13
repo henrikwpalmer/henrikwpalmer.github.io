@@ -115,7 +115,8 @@ body {
   .video-container video {
 	position: absolute;
 	top: 0;
-	left: 0;
+	left: 50%;
+	transform: translateX(-50%);
 	width: 90%;
 	height: 90%;
   }
@@ -137,6 +138,23 @@ body {
   .sketch-container, .pdf-section {
 	margin-bottom: 3rem;
   }
+  .sketch-wrapper {
+	text-align: center; /* center the sketch horizontally */
+}
+
+#quaran_sketch {
+	display: inline-block; /* allow it to be centered */
+	width: 1100px; /* or however wide your sketch canvas is */
+	height: 700px; /* optional: define height if you want consistent spacing */
+	background-color: #f0f0f0; /* optional: for visualization */
+}
+
+.sketch-tip {
+	text-align: left;
+	width:1100px; /* same width as sketch */
+	margin: 0 auto; /* center the paragraph itself */
+}
+
   
   .section-box {
 	background-color: #fafafa;

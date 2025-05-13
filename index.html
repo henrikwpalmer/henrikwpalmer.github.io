@@ -59,23 +59,30 @@
 		</script>
 
 		<section id="data-sandbox" class="section-box">
-			<h2><b>Spurious Data Sandbox [IN PROGRESS]</b></h2>
+			<h2><b>Spurious Data Sandbox [Potentially adding feature to tool]</b></h2>
 			<p class="body-text">
 				<b>Date: </b>April 2025 <br>
 				<b>Medium/Tools: </b>R, RShiny, Leaflet<br><br>
+
 				<b>Overview: </b>In this digital sandbox, users develop their own hypotheses based on publicly available 
-				urban geospatial datasets associated with New York City. Because virtually all of my professional work is highly 
+				urban geospatial datasets associated with New York City and check in on their favorite trees with live video feeds. 
+				Because virtually all of my professional work is highly 
 				confidential, this data sandbox, built independently and using open data, provides an insight into the kind of tools 
-				and ways of thinking that are employed as an economic consultant, especially around data visualization, regression modeling, 
+				and ways of thinking that are employed as an economic consultant, especially around data visualization, data gathering, 
 				and pattern discovery.
-				[[<b>Planned feature:</b> a side panel with toggle bars allowing users to view regression coefficients and interpret the 
+				[[<b>Potential planned feature:</b> a side panel with toggle bars allowing users to view regression coefficients and interpret the 
 				relationships between visualized data series.]]<br><br>
 
-				<b>Code Description: </b>The codes import and synthesize geospatial temperature data gathered by NASA, tree data maintained by 
+				<b>Code Description: </b>The codes import and synthesize geospatial temperature data gathered by NASA satellites, tree data maintained by 
 				the New York City Parks Department, bike lane data and traffic camera surveillance feeds maintained by the New York City Department 
-				of Transportation. <br><br>
+				of Transportation. The RShiny application developed enables toggling on and off different data layers as well as exploring 
+				specific data points by selecting pop ups. Links to camera feeds show live feeds of New York City streets.<br><br>
 
-				<b>Concept: </b>This project is loosely inspired by the statistical concept of "spurious correlation." This is refers to when  
+				<b>Concept: </b>This project was motivated by the exorbitant number of cameras on New York City streets encountered 
+				on the path of a protest. The tool explores the connection between data measuring tools and conclusions that 
+				can be reached. What can be measured from a satellite in space? What can be determined from traffic cameras? What does 
+				an abundance of data obscure from observed reality?<br><br>
+				Further iterations may investigate the statistical concept of "spurious correlation." This is refers to when  
 				two data series are highly correlated but have no logical real-world connection. Much of economic and other social science 
 				research relies on correlational studies (regressions) 
 				in order to infer causation. <br><br>
@@ -84,8 +91,8 @@
 				representing the conduct in question. The direction and magnitude of this dummy’s coefficient can become the estimated impact or 
 				“damage.” In practice, this means that consulting analyses often focus on finding the right combination of variables to influence 
 				this key coefficient. <br><br>
-				To illustrate and demystify these dynamics, this tool allows users to conduct their own exploratory regressions—visually experimenting 
-				with variable selection and interpretation. It also lets you spy on your favorite trees in the city—if visible.
+				How might the measurements that we use benefit and reinforce existing power structures? Will we get a better view of a tree?
+				
 			</p>
 			<iframe src="https://henrikwpalmer.shinyapps.io/SurveilledTrees/"
 				width="100%"
@@ -145,9 +152,10 @@
 				interaction, and social isolation. Further iterations would have incorporated connectivity between users such that 
 				users could see how their Quaranspace did or did not overlap with others in their community. <br><br>
 				</p>
-			<div id="quaran_sketch"></div>
-			<p class="body-text"><b>Tip: </b>Type "R" to re-initialize Quaranspace.</p>
-
+			<div class="sketch-wrapper">
+				<div id="quaran_sketch"></div>
+				<p class="body-text sketch-tip"><b>Tip: </b>Type "R" to restart Quaranspace. Refresh to re-initialize Quaranspace. </p>
+			</div>
 			<p class="photo-caption"> <br>Uploaded Run Screenshots</p>
 			<!-- Two images side by side -->
 			<div class="photo-row two-images">
