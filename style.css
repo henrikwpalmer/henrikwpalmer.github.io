@@ -2,8 +2,8 @@ body, html {
 	margin: 0;
 	padding: 0;
 	height: 100%;
-	font-family: 'Kollektif', sans-serif;
-	font-size: 23px;
+	font-family: 'Apacible', sans-serif;
+	font-size: 20px;
   }
 body {
 	background: 
@@ -16,10 +16,26 @@ body {
 	height: 100vh;
 	overflow: hidden;
   }
-  
-  @font-face {
+
+/* .ibm-plex-sans-font {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+} */
+
+
+/* @font-face {
 	font-family: 'Kollektif';
 	src: url('fonts/Kollektif.ttf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
+  } */
+  @font-face {
+	font-family: 'Apacible';
+	src: url('fonts/Apacible\ DEMO.ttf') format('opentype');
 	font-weight: normal;
 	font-style: normal;
   }
@@ -113,9 +129,9 @@ body {
   }
   
   .body-text {
-	font-size: 22px;
-	line-height: 1.5;
-	color: #333; /*  a little softer than pure black */
+	font-size: 18px;
+	line-height: 1.3;
+	color: #121212; /*  a little softer than pure black */
   }
 
   .sketch-container, .pdf-section {
@@ -159,7 +175,7 @@ body {
 	margin-top: 0.25rem; /* under the image */
 	font-size: 1rem;
 	line-height: 1;
-	color: #444;
+	color: #1c1c1c;
   }
   
   .two-images {
