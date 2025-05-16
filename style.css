@@ -94,6 +94,34 @@ body {
   .sidebar nav a:hover {
 	text-decoration: underline;
   }
+  /* Style for linked text boxes */
+  .link-box-group {
+	border: 2px solid #BF7919;
+	border-radius: 8px;
+	padding: 3px;
+	background-color: rgba(191, 121, 25, 0.6); 
+	transition: background-color 0.3s ease;
+	position: relative;
+	z-index: 10;
+  }
+  /* .link-box-group a {
+	color: white;
+	text-decoration: none;
+  }
+  
+  .link-box-group a:hover {
+	text-decoration: underline;
+  } */
+    .name-box {
+	display: inline-block;
+	padding: 4px 8px;
+	border: 2px solid #004C3C;
+	border-radius: 4px;
+	transition: background-color 0.3s, border-color 0.3s;
+	background-color: rgba(0, 76, 60, 0.6); 
+	color: white;
+	text-decoration: none;
+  }
   
   /* Main Content */
   .content {
@@ -130,7 +158,7 @@ body {
   }
   
   .body-text {
-	font-size: 18px;
+	font-size: 16px;
 	line-height: 1.3;
 	color: #121212; /*  a little softer than pure black */
   }

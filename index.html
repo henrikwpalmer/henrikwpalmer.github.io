@@ -17,15 +17,16 @@
 
 		<div class="sidebar-canvas" id="albers_sidebar"></div>
 
-		<h1>Henrik Palmer</h1>
-		<nav>
+		<h1 class = "name-box">Henrik Palmer</h1>
+		
+		<nav class="link-box-group">
 		  <ul>
-			<li>➔ <a href="#data-sandbox">Data Sandbox</a></li>
-			<li>➔ <a href="#paper">Platform Economics and Mergers Chapter</a></li>
-			<li>➔ <a href="#quaran-sketch">COVID Quaranspace</a></li>
-			<li>➔ <a href="#video">AR Hope Dandelion</a></li>
-			<li>➔ <a href="#chandelier">Echo Chandelier</a></li>
-			<li>➔ <a href="#conjoined_solids">Conjoined Solids</a></li>
+			<li><a href="#data-sandbox">➔ Spurious Data Sandbox</a></li>
+			<li><a href="#paper">➔ Platform Economics and Mergers Chapter</a></li>
+			<li><a href="#quaran-sketch">➔ COVID Quaranspace</a></li>
+			<li><a href="#video">➔ AR Hope Dandelion</a></li>
+			<li><a href="#chandelier">➔ Echo Chandelier</a></li>
+			<li><a href="#conjoined_solids">➔ Conjoined Solids</a></li>
 		  </ul>
 		</nav>
 	  </aside>
@@ -37,11 +38,11 @@
 			<div id="bio" class="opacity-0 translate-y-4 transition-all duration-1000 bg-gray-300 border border-gray-400 rounded-2xl shadow-sm p-8">
 			<h1 class="text-2xl font-medium text-gray-900 mb-3">Bio</h1>
 			<p class="text-base text-gray-700 leading-relaxed">
-				I am a social science researcher and creative technologist interested in the abstraction enabled by data's integration into all parts of public and 
-				private life. 
+				I am a social science researcher and creative technologist interested in  the abstraction enabled by data's integration 
+				into all parts of public and private life. 
 				With a background in data science, social theory, and economics, I build tools and visualizations that critically engage 
 				with the limits of data's omnipotence in modern society. My academic and professional work spans antitrust analysis, urban policy modeling, and experimental 
-				digital fabrication. I am especially interested exploring how abstraction through data shapes our social, legal, academic, and built environments. 
+				digital fabrication. I am especially interested exploring how abstraction through data shapes our social, legal, academic and built environments. 
 				
 			</p>
 			</div>
@@ -69,8 +70,7 @@
 				Because virtually all of my professional work is highly 
 				confidential, this data sandbox, built independently and using open data, provides an insight into the kind of tools 
 				and ways of thinking that are employed as an economic consultant, especially around data visualization, data gathering, 
-				and pattern discovery.
-				<br><br>
+				and pattern discovery.<br><br>
 
 				<b>Code Description: </b>The codes import and synthesize geospatial temperature data gathered by NASA satellites, tree data maintained by 
 				the New York City Parks Department, bike lane data and traffic camera surveillance feeds maintained by the New York City Department 
@@ -85,11 +85,13 @@
 				two data series are highly correlated but have no logical real-world connection. Much of economic and other social science 
 				research relies on correlational studies (regressions) 
 				in order to infer causation. <br><br>
+
 				In economic consulting, regressions are frequently used to estimate the effect of certain behaviors 
 				or policies—for example, quantifying damages by regressing price on a set of explanatory variables, including a dummy variable 
 				representing the conduct in question. The direction and magnitude of this dummy’s coefficient can become the estimated impact or 
 				“damage.” In practice, this means that consulting analyses often focus on finding the right combination of variables to influence 
 				this key coefficient. <br><br>
+
 				How might the measurements that we use benefit and reinforce existing power structures? Will we get a better view of a tree?
 				
 			</p>
@@ -100,6 +102,8 @@
 			</iframe>
 			<p class="body-text"><b>Note: </b>Tool is best viewed with VPN to the United States. Data security protocols prevents street cameras to 
 			be viewed outside of the United States.</p>
+			<p class="photo-caption"> <br>Screenshots of video feed</p>
+
 		</section>
 	<!-- AG Article -->
 		<section id="paper" class="pdf-section section-box">
@@ -117,11 +121,11 @@
 			the higher barrier to entry that can exist in these markets. <br><br> 
 			The chapter discusses the rising concern over acquisition strategies of dominant tech firms, particularly in light of a Biden 
 			administration 2021 Executive Order, and highlights tensions within the FTC regarding the application of existing 
-			antitrust tools. It analyzes key platform features such as indirect network effects, pricing asymmetry, and 
+			antitrust tools. It analyzes key platform features such as indirect network effects, pricing asymmetry,  
 			nascent competition, and reviews the implications for market definition, competitive effects, and merger remedies. The 
 			authors explore the debate between adapting current tools and developing new methodologies to better evaluate competition 
 			in digital markets. <br><br>
-			<b>Note: </b>Unlike virtually all work I have performed while employed at the economic consulting firm, Analysis Group, this article is non-confidential. 
+			<b>Note: </b>Unlike virtually all work I have performed while employed at the economic consulting firm, Analysis Group, this article is not confidential. 
 			The opinions expressed in the chapter are not mine, and indeed, I would argue against several of the points made. Specifically, 
 			regarding the more sanitized view of tech companies' "killer acquisitions." My own version of this chapter would include a discussion 
 			of the affect on gig workers that the FTC's guidelines have and would situate these developments into broader struggles 
@@ -139,17 +143,18 @@
 				<b>Medium/Tools: </b> Processing, p5.js, Run Trainer App <br><br>
 				<b>Overview: </b> <i>COVID Quaranspace</i> is designed as a way for users to use geolocation to develop form and 
 				reflect on their daily life patters. Intially created as an application, the project consists of a window for 
-				uploading screenshots of running or walking paths recorded on a running tracker which are then manipulated and 
+				uploading screenshots of run or walking paths recorded on a running tracker which are then manipulated and 
 				orbited in black space. <br> <br>
 				<b>Code Description: </b>The code employs a Java script library for importing images from the user. The uploaded image 
 				is then processed pixel-by-pixel to identify the pixels showing the path taken. All other pixels are made transluscent 
 				thereby removing excess noise in the screenshot. The geographic center of the path is calculated and 
 				is used as the folcrum for rotating in 3D space. Each uploaded image is assigned a random color based on 
 				a predetermined color pallette<br><br>
-				<b>Concept: </b><i>COVID Quaranspace</i> was being developed as I was contemplating the emergent powers claimed by 
-				the state during what Carl Schmitt deems the "state of emergency." During this period of heightened national anxiety, governments 
-				had or claimed license to impose strict social isoloation standards, shortcut data security protections, and fast-track legislation. 
-				Of course, chief among these was the lockdown protocols that many of the world's governments were implementing to varying degrees 
+				<b>Concept: </b><i>COVID Quaranspace</i> was being developed as I was contemplating the emergent powers claimed by the state 
+				during a period of national heightened anxiety. During this moment of what the political philosopher Carl Schmitt might deem 
+				the "state of exception," governments reinforced their sovereignty by claiming license to impose strict social isolation 
+				standards, shortcut data security protections, and fast-track legislation. Of course, chief among these measures was the lockdown 
+				protocols that many of the world's governments were implementing to varying degrees 
 				of enforcement in order to "slow the spread." <br><br> 
 				The application reflects on the availability of geolocation data and how these data might be used to map infection risk, social 
 				interaction, and social isolation. Further iterations would have incorporated connectivity between users such that 
@@ -293,24 +298,51 @@
 		};
 	</script>
 
-<!-- For Scroll reactivity -->
-	<script>
+<!-- For Scroll reactivities -->
+  
+  <script>
+	// Scroll reactivity for albers sidebar (canvas zoom)
 	let lastScrollTop = 0;
   
 	window.addEventListener("scroll", () => {
 	  const scrollTop = window.scrollY || document.documentElement.scrollTop;
 	  const delta = scrollTop - lastScrollTop;
   
-	  // Get reference to the running p5 sketch instance
 	  const albers = window._p5Instances?.find(p => p._userNode?.id === 'albers_sidebar');
 	  if (albers) {
 		albers.zoom *= 1.0 - (delta * 0.0003); // sensitivity
 		albers.zoom = albers.constrain(albers.zoom, 0.9, 5.0);
 	  }
   
-	  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Prevent negative scroll
+	  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 	});
   </script>
+  
+  <script>
+	// Scroll reactivity for fading .link-box and .name-box based on .content scroll
+	window.addEventListener("DOMContentLoaded", () => {
+	  const content = document.querySelector('.content');
+	  const fadingElements = document.querySelectorAll('.link-box-group, .name-box');
+  
+	  const updateOpacity = () => {
+		const scrollTop = content.scrollTop;
+		const maxScroll = content.scrollHeight - content.clientHeight;
+		const scrollRatio = Math.min(scrollTop / maxScroll, 1);
+		const alpha = 0.8 - scrollRatio * 0.9;
+  
+		fadingElements.forEach(el => {
+		  const baseColor = el.classList.contains('name-box') 
+			? '0, 76, 60'        // dark green for name-box
+			: '191, 121, 25';     // orange for link-box
+		  el.style.backgroundColor = `rgba(${baseColor}, ${alpha})`;
+		});
+	  };
+  
+	  content.addEventListener("scroll", updateOpacity);
+	  updateOpacity(); // run once on load
+	});
+  </script>
+  
   
   </body>
   </html>

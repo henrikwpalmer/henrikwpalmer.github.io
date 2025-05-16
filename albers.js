@@ -2,7 +2,7 @@ let albersSketch = (p) => {
 
   let time = 0, turn = 0, speed = 0.001, shrink = 0.2, send = 0.2, send1 = 0.2;
   let boom = 1;
-  let zoom = 3;
+  let zoom = 1.1;
   let time1 = 0;
   let go = true, expand = false, contract = false, kaboom = false, flaps = true;
 
@@ -123,7 +123,7 @@ let albersSketch = (p) => {
   };
 
   p.mouseWheel = function(event) {
-    p.zoom *= 1.0 - (event.delta * 0.0001);
+    p.zoom *= 1.0 - (-event.delta * 0.0001);
     p.zoom = p.constrain(p.zoom, 0.9, 5.0);
   };
 
